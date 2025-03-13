@@ -690,3 +690,192 @@ export default function ToDoList() {
         </div>
     );
 } */
+
+
+    //13.03.25
+    /*
+//1-tapsirma
+import { useState, useEffect } from "react";
+
+export default function ColorPicker() {
+  const [color, setColor] = useState("white");
+
+  useEffect(() => {
+    const savedColor = localStorage.getItem("color");
+    if (savedColor) {
+      setColor(JSON.parse(savedColor));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (color) {
+      localStorage.setItem("color", JSON.stringify(color));
+    }
+  }, [color]);
+
+  return (
+    <div style={{ backgroundColor: color, height: "100vh", padding: "20px" }}>
+      <h2>Түс таңда:</h2>
+      <button onClick={() => setColor("red")}>🔴 Қызыл</button>
+      <button onClick={() => setColor("blue")}>🔵 Көк</button>
+      <button onClick={() => setColor("green")}>🟢 Жасыл</button>
+    </div>
+  );
+}
+*/
+
+
+/*
+//2-tapsirma
+import { useState, useEffect } from "react";
+
+export default function Login() {
+  const [username, setUsername] = useState(localStorage.getItem("username") || ""); 
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("username");
+    if (savedUser) {
+      setUsername(savedUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (username) {
+      localStorage.setItem("username", username);
+    } else {
+      localStorage.removeItem("username");
+    }
+  }, [username]);
+
+  return (
+    <div>
+      <h2>{username ? `Сәлем, ${username}!` : "Жүйеге кіріңіз"}</h2>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)} 
+        placeholder="Атыңызды енгізіңіз"
+      />
+      <button onClick={() => setUsername("")}>🚪 Шығу</button>
+    </div>
+  );
+}
+
+*/
+
+/*
+//3-tapsirma
+import { useState, useEffect } from "react";
+
+export default function VolumeControl() {
+  const [volume, setVolume] = useState(localStorage.getItem("volume"));
+
+  useEffect(() => {
+    const savedVolume = localStorage.getItem("volume");
+    if (savedVolume) {
+      setVolume(Number(savedVolume));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("volume", volume);
+  }, [volume]);
+
+  return (
+    <div>
+      <h2>Дыбыс деңгейі: {volume}</h2>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value={volume}
+        onChange={(e) => setVolume("")}
+      />
+    </div>
+  );
+}
+*/
+
+
+//4-tapsirma
+
+import { useState, useEffect } from "react";
+
+export default function Timer() {
+  const [seconds, setSeconds] = useState(() => Number(localStorage.getItem("seconds")) || 0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("seconds", seconds);
+  }, [seconds]);
+
+  return (
+    <div>
+      <h2>Таймер: {seconds} сек</h2>
+    </div>
+  );
+}
+
+
+
+/*
+
+//5-tapsirma
+import { useState, useEffect } from "react";
+
+export default function CurrencyConverter() {
+  const [currency, setCurrency] = useState.localStorage("currency"); 
+
+  useEffect(() => {
+    const savedCurrency = localStorage.getItem("currency");
+    if (savedCurrency) {
+      setCurrency(savedCurrency);
+    }
+  }, []);
+
+  useEffect(() => {
+    lo.setItem("currency", currency);
+  }, [currency]);
+
+  return (
+    <div>
+      <h2>Таңдалған валюта: {currency}</h2>
+      <button onClick={() => setCurrency("USD")}>💵 USD</button>
+      <button onClick={() => setCurrency("EUR")}>💶 EUR</button>
+      <button onClick={() => setCurrency("KZT")}>🇰🇿 KZT</button>
+    </div>
+  );
+}
+
+
+*/
+
+
+/*
+//6-тапсырма
+import { useState, useEffect } from "react";
+
+export default function ModeColor() {
+  const [mode, setMode] = useState(localStorage.getItem("mode") || "light");
+
+  useEffect(() => {
+    localStorage.setItem("mode", mode);
+    document.body.classList.toggle("dark", mode === "dark");
+  }, [mode]);
+
+  return (
+    <div>
+      <h2>Қараңғы (Dark Mode) немесе ашық (Light Mode) тақырыпты таңдау: {mode}</h2>
+      <button onClick={() => setMode("dark")}>Dark Mode</button>
+      <button onClick={() => setMode("light")}>Light Mode</button>
+    </div>
+  );
+}
+*/
