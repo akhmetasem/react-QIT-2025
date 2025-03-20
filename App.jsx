@@ -1,12 +1,265 @@
+//19.03.25HW
+
+/*
+//1-tapsirma
+import { BrowserRouter as Router, Route, Routes, useParams } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/profile/:username" element={<UserProfile />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function UserProfile() {
+  const { username } = useParams();
+  return <h1>Welcome, {username}!</h1>;
+}
+
+export default App;
+
+*/
+
+
+/*
+//2-tapsirma
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function ProductDetail() {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.error("Error fetching product:", error));
+  }, [id]);
+
+  if (!product) return <h2>Loading...</h2>;
+
+  return (
+    <div>
+      <h1>{product.title}</h1>
+      <p>{product.description}</p>
+      <p>Price: ${product.price}</p>
+    </div>
+  );
+}
+
+export default App;
+*/
+
+
+/*
+//3-tapsirma
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/surprise" element={<Surprise />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h1>🏠 Home Page</h1>;
+}
+function Profile() {
+  return <h1>👤 Profile Page</h1>;
+}
+function Posts() {
+  return <h1>📝 Posts Page</h1>;
+}
+function About() {
+  return <h1>ℹ️ About Page</h1>;
+}
+
+function Surprise() {
+  const navigate = useNavigate();
+  const pages = ["/", "/profile", "/posts", "/about"];
+
+  const goToRandomPage = () => {
+    const randomPage = pages[Math.floor(Math.random() * pages.length)];
+    navigate(randomPage);
+  };
+
+  return (
+    <div>
+      <h1>🎉 Surprise Page!</h1>
+      <button onClick={goToRandomPage}>Surprise Me!</button>
+    </div>
+  );
+}
+
+
+*/
+
+
+/*
+//4-tapsirma
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Link, useParams } from "react-router-dom";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/posts" element={<PostList />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function PostList() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, []);
+
+  return (
+    <div>
+      <h1>📢 Blog Posts</h1>
+      {posts.map((post) => (
+        <div key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.body.substring(0, 50)}...</p>
+          <Link to={`/posts/${post.id}`}>Read More</Link>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function PostDetail() {
+  const { id } = useParams();
+  const [post, setPost] = useState(null);
+
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then((res) => res.json())
+      .then((data) => setPost(data))
+      .catch((error) => console.error("Error fetching post:", error));
+  }, [id]);
+
+  if (!post) return <h2>Loading...</h2>;
+
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+    </div>
+  );
+}
+
+export default App;
+
+*/
+
+
+/*
+//5-tapsirma
+import { useState } from "react";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFoundGame />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h1>🏠 Home Page</h1>;
+}
+
+function NotFoundGame() {
+  const navigate = useNavigate();
+  const [clicks, setClicks] = useState(0);
+
+  const handleClick = () => {
+    setClicks((prev) => {
+      const newClicks = prev + 1;
+      if (newClicks === 5) {
+        navigate("/");
+      }
+      return newClicks;
+    });
+  };
+
+  return (
+    <div>
+      <h1>🎮 404 Mini Game</h1>
+      <p>Click the button 5 times to go back home!</p>
+      <button onClick={handleClick}>Click Me ({clicks}/5)</button>
+    </div>
+  );
+}
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 //20.03.2025HW
 import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate, Navigate } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <nav className="p-4 bg-gray-800 text-white flex gap-4">
-      <NavLink className={({ isActive }) => isActive ? 'font-bold' : ''} to="/profile">My Profile</NavLink>
-      <NavLink className={({ isActive }) => isActive ? 'font-bold' : ''} to="/projects">My Projects</NavLink>
-      <NavLink className={({ isActive }) => isActive ? 'font-bold' : ''} to="/about">About Me</NavLink>
+    <nav>
+      <NavLink to="/profile">My Profile</NavLink>
+      <NavLink to="/projects">My Projects</NavLink>
+      <NavLink to="/about">About Me</NavLink>
     </nav>
   );
 };
@@ -67,6 +320,8 @@ const App = () => {
 };
 
 export default App;
+
+*/
 
 
 
