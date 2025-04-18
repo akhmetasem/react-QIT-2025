@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    outline: none;
+    border: none;
+  }
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .input {
+    width: 300px;
+    height: 30px;
+    font-size: 18px;
+    padding: 20px 10px;
+    box-shadow: 0 0 10px #ceceec;
+    border-radius: 10px;
+  }
+  
+  button {
+    padding: 10px 25px;
+    font-size: 18px;
+    color: white;
+    background: #0091ff;
+    border-radius: 10px;
+    transition: 0.4s all linear;
+    cursor: pointer;
+  
+    &:hover {
+      background: #00a824;
+    }
+  }
+  
+  section {
+    box-shadow: 0 0 10px #cecece;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    box-shadow: 0 0 10px #cecece;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+    position: relative;
+    color: #00a824;
+  }
+  
+  
+  .check {
+    accent-color: #00a824;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+  
+  
+  
+  .completed {
+    text-decoration: line-through;
+    color: red;
+  }
+  
+  .edit {
+    position: absolute;
+    left: 0;
+  }
+  
+  .editBtn {
+    left: 70%;
+  }
