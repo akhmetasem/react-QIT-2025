@@ -1,0 +1,25 @@
+body{
+    margin: 200px 200px 0px ;
+    background-color: rgb(195, 187, 187);
+    display: flex;
+    justify-content: center;
+   
+    gap: 10px;
+}
+h1{
+    color: rgb(5, 50, 127);
+}
+h2{
+    color: rgb(5, 50, 127);
+}
+p{
+    color: sienna;
+}
+button{
+
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    background-color: rgb(0, 128, 62);
+    color: white;
+}
