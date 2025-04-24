@@ -1,0 +1,79 @@
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #e3f2fd;  
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+.form{
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    padding-right: 75px;
+}
+input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #90caf9;  
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #e3f2fd; 
+    color: #333;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+input:focus{
+    outline: none;
+    border-color: #1e88e5;  
+    background-color: #bbdefb; 
+}
+input{
+    padding: 12px;
+}
+button{
+    width: 100%;
+    padding: 14px;
+    background-color: #1e88e5; 
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: #1565c0; 
+}
+.list{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.card{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #90caf9;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+    color: #555;
+}
+.card br{
+    display: block;
+    margin-bottom: 8px;
+}
+.card span{
+    font-weight: bold;
+}
+.card:hover{
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-color: #1e88e5; 
+}
